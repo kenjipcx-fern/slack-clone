@@ -128,7 +128,7 @@ export const Sidebar: React.FC = () => {
                 >
                   <Hash className="w-4 h-4" />
                   <span>{channel.name}</span>
-                  {channel.unreadCount > 0 && (
+                  {(channel.unreadCount ?? 0) > 0 && (
                     <span className="ml-auto bg-red-500 text-white text-xs rounded-full px-2">
                       {channel.unreadCount}
                     </span>
@@ -146,7 +146,7 @@ export const Sidebar: React.FC = () => {
                 >
                   <Lock className="w-4 h-4" />
                   <span>{channel.name}</span>
-                  {channel.unreadCount > 0 && (
+                  {(channel.unreadCount ?? 0) > 0 && (
                     <span className="ml-auto bg-red-500 text-white text-xs rounded-full px-2">
                       {channel.unreadCount}
                     </span>
@@ -182,7 +182,7 @@ export const Sidebar: React.FC = () => {
                 >
                   <Circle className="w-2 h-2 fill-current text-green-500" />
                   <span>{dm.displayName || dm.name}</span>
-                  {dm.unreadCount > 0 && (
+                  {(dm.unreadCount ?? 0) > 0 && (
                     <span className="ml-auto bg-red-500 text-white text-xs rounded-full px-2">
                       {dm.unreadCount}
                     </span>

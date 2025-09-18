@@ -30,28 +30,28 @@ export const Workspace: React.FC = () => {
         console.log('WebSocket connected');
       });
 
-      socketService.on('message:new', (message) => {
+      socketService.on('message:new', (message: any) => {
         if (message.channelId) {
           addMessage(message.channelId, message);
         }
       });
 
-      socketService.on('message:updated', (message) => {
+      socketService.on('message:updated', (message: any) => {
         updateMessageInStore(message);
       });
 
-      socketService.on('message:deleted', (data) => {
+      socketService.on('message:deleted', (data: any) => {
         if (data.channelId && data.messageId) {
           removeMessage(data.channelId, data.messageId);
         }
       });
 
-      socketService.on('message:reaction', (data) => {
+      socketService.on('message:reaction', (data: any) => {
         // Handle reaction updates
         console.log('Reaction update:', data);
       });
 
-      socketService.on('user:typing', (data) => {
+      socketService.on('user:typing', (data: any) => {
         if (data.channelId && data.userId && data.userId !== user?.id) {
           addTypingUser(data.channelId, data.userId);
           
@@ -62,7 +62,7 @@ export const Workspace: React.FC = () => {
         }
       });
 
-      socketService.on('user:stopped_typing', (data) => {
+      socketService.on('user:stopped_typing', (data: any) => {
         if (data.channelId && data.userId) {
           removeTypingUser(data.channelId, data.userId);
         }

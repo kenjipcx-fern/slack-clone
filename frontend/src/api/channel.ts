@@ -15,6 +15,7 @@ export interface Channel {
   lastActivityAt: string;
   createdAt: string;
   updatedAt: string;
+  unreadCount?: number;
 }
 
 export interface ChannelMember {

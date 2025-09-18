@@ -59,7 +59,7 @@ export const MessageList: React.FC<MessageListProps> = ({ messages, channelId })
           </div>
 
           {/* Messages for this date */}
-          {group.messages.map((message, index) => {
+          {group.messages.map((message: any, index: number) => {
             const prevMessage = index > 0 ? group.messages[index - 1] : null;
             const showAvatar = !prevMessage || 
               prevMessage.userId !== message.userId || 

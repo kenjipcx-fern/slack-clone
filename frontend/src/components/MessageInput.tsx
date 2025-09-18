@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Paperclip, Smile, At, Hash } from 'lucide-react';
+import { Send, Paperclip, Smile, AtSign } from 'lucide-react';
 import { useMessageStore } from '../store/messageStore';
 import socketService from '../services/socket';
 import EmojiPicker from 'emoji-picker-react';
@@ -16,7 +16,7 @@ export const MessageInput: React.FC<MessageInputProps> = ({ channelId, channelNa
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
   const inputRef = useRef<HTMLTextAreaElement>(null);
-  const typingTimeoutRef = useRef<NodeJS.Timeout>();
+  const typingTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     // Focus input when channel changes
@@ -108,7 +108,7 @@ export const MessageInput: React.FC<MessageInputProps> = ({ channelId, channelNa
               className="p-1.5 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded"
               title="Mention someone"
             >
-              <At className="w-5 h-5" />
+              <AtSign className="w-5 h-5" />
             </button>
             
             <button
