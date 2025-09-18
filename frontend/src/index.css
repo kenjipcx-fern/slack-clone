@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body, #root {
+    height: 100%;
+    width: 100%;
+  }
+
+  body {
+    @apply bg-white text-gray-900 antialiased;
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 rounded;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500;
+  }
+}
+
+@layer components {
+  .sidebar-item {
+    @apply flex items-center px-3 py-1 rounded hover:bg-slack-hover cursor-pointer text-slack-text transition-colors;
+  }
+
+  .channel-item {
+    @apply flex items-center gap-2 px-4 py-1 hover:bg-slack-hover cursor-pointer text-slack-text/80 hover:text-slack-text;
+  }
+
+  .message-input {
+    @apply w-full px-4 py-2 bg-slack-message border border-slack-border rounded-lg text-slack-text placeholder-slack-text/50 focus:outline-none focus:border-slack-text/30;
+  }
+
+  .btn-primary {
+    @apply px-4 py-2 bg-slack-green text-white rounded font-semibold hover:bg-slack-green/90 transition-colors;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 bg-gray-600 text-white rounded font-semibold hover:bg-gray-700 transition-colors;
+  }
+}
